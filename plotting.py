@@ -3,7 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 data = pd.read_csv("./nedrex_web_runtime.tsv", sep="\t")
-
+data = data[data['runtime'] != -1]
 sns.set(style="whitegrid")
 
 plt.rcParams.update({
@@ -16,7 +16,7 @@ plt.rcParams.update({
 })
 
 targets = ['module_identification', 'drug_prioritization']
-custom_ticks = [10,25,50,100,250,500,1000]
+custom_ticks = [10,25,50,100,250]
 
 titles = {
     'module_identification': "Runtime Scaling for Module Identification",
@@ -41,7 +41,7 @@ for target in targets:
     plt.figure(figsize=(10, 6))
     ax = plt.subplot(1, 1, 1)
 
-    sns.lineplot(data=target_data, x='seed_size', y='runtime', hue='algorithm', style='algorithm',
+    sns.lineplot(data=target_data, x='seed_size_step', y='runtime', hue='algorithm', style='algorithm',
                  markers=True, dashes=False, ci='sd', err_style='band', ax=ax)
 
     ax.set_ylabel('Runtime (seconds)', fontsize=14)

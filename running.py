@@ -10,7 +10,7 @@ nedrex_api = 'https://api.web.nedrex.net/api/'
 
 db_version = requests.get(nedrex_api + "getMetadata").json()["repotrial"]["version"]
 
-userId = "03649658-2e71-46db-8cb5-8517a616ebdb"
+userId = "0ec00f73-3715-49e1-b271-079b73cf5a34"
 # params = {"elements": True, "type": "gene", "addInteractions": True, "nodesOnly": False}
 # tissue = None
 

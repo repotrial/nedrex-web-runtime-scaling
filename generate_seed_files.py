@@ -8,7 +8,7 @@ disorder_names ={}
 disease_gene_edges=defaultdict(set)
 
 num_per_step = 5
-steps = [10,25,50,100,250,500,1000]
+steps = [10,25,50,100,250]
 allowed_divergence_per_step_as_fraction=0.15
 all_steps_matching=defaultdict(set)
 
@@ -27,13 +27,13 @@ def save_gene_disease_edges(edge):
 
 import requests
 
-# nedrex_api = 'https://api.web.nedrex.net/api/'
-nedrex_api = 'http://localhost:8090/api/'
+nedrex_api = 'https://api.web.nedrex.net/api/'
+# nedrex_api = 'http://localhost:8090/api/'
 
 db_version = requests.get(nedrex_api + "getMetadata").json()["repotrial"]["version"]
 
-userId = "03649658-2e71-46db-8cb5-8517a616ebdb"
-# userId = "c35a4be1-6a93-4074-ad74-b82c3bd020e2"
+# userId = "03649658-2e71-46db-8cb5-8517a616ebdb"
+userId = "0ec00f73-3715-49e1-b271-079b73cf5a34"
 disease_gene_network_build_payload= {
     "nodes": {
         "gene": {
